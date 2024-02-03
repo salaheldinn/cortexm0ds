@@ -116,6 +116,7 @@ module cmsdk_ahb_slave_mux #(
      reg_hsel <= nxt_hsel_reg;
   end
 
+  //will only go low, when enabled, and selected slave has HREADYOUT low. otherwise, it is a high
   assign mux_hready =
            ((~reg_hsel[0]) | HREADYOUT0 | (PORT0_ENABLE==0)) &
            ((~reg_hsel[1]) | HREADYOUT1 | (PORT1_ENABLE==0)) &
